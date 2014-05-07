@@ -11,3 +11,7 @@ f_patch.patch为针对其的patch补丁源码
 第三个
 c1.c为有段错误的原文件,
 1.patch为补丁文件
+
+第四个
+zjj_old.c为有段错误的源码（包含6个段错误）
+zjj.patch为补丁文件
