@@ -1,0 +1,15 @@
+--- dold.c	2014-05-07 16:21:05.950076989 +0800
++++ dnew.c	2014-05-07 16:19:38.846073378 +0800
+@@ -3,7 +3,9 @@
+ #include<string.h>
+ void main()
+ {
+-	char *ptr = "test";
+-    strcpy(ptr, "TEST");
+-	printf("%s\n",ptr);
++	    char *ptr = (char *)malloc(sizeof(char));
++		*ptr="test";
++	    strcpy(ptr, "TEST");
++		printf("%s\n",ptr);
++		free(ptr);
+ }
