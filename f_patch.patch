@@ -1,0 +1,13 @@
+--- f_old.c	2014-05-07 16:44:01.206251375 +0800
++++ f_new.c	2014-05-07 16:50:50.426254591 +0800
+@@ -19,8 +19,8 @@
+ }
+ void dummy_function(void)
+ {
+-	unsigned char *ptr=0x00;
+-	*ptr=0x00;
++	unsigned char *ptr=(char*)malloc(1);
++	*ptr='a';
+ }
+ int main(void)
+ {
