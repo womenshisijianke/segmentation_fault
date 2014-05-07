@@ -1,0 +1,38 @@
+--- c1.c	2014-05-07 16:36:15.178411000 +0800
++++ c2.c	2014-05-07 16:42:34.322401000 +0800
+@@ -5,29 +5,24 @@
+ char *p2;
+ char c;
+ p1 = (char *) malloc(512);
+-p2 = (char *) malloc(512);
+-p1=p2;
+-free(p1); //泄漏
+-//free(p2); 
+ c = *p1;
+-c = *p2;
++free(p1); 
+ }
+ int a1(void)
+ {
+ int i, *iw, *ir;
+ iw = (int *)malloc(10*sizeof(int));
+ ir = (int *)malloc(10*sizeof(int));
+-for (i=0; i<11; i++)
++for (i=0; i<10; i++)
+ iw[i] = i;
+-//非法写
+-for (i=0; i<11; i++)
+-ir[i] = iw[i]; //非法读写
++for (i=0; i<10; i++)
++ir[i] = iw[i]; 
+ free(iw);
+ free(ir);
+ }
+ int main(void)
+-{int i[5];
+-if (i[0] == 0) //使用了未初始化的内存
++{int i[5]={0};
++if (i[0] == 0)
+ i[1]=1;
+ ml();
+ a1();
